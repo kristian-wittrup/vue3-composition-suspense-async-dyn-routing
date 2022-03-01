@@ -1,9 +1,19 @@
 <template>
+
   <div>
     <p v-for="user in state.users" :key="user.id">
-      {{user.first_name}}
+      
+      <router-link :to="{
+        name: 'UserDetails',
+        params: {
+          id: user.id
+        }
+      }" >
+        {{user.first_name}}
+      </router-link>
+      <router-view></router-view>
     </p>
-  </div>
+  </div> 
 </template>
 
 <script>
